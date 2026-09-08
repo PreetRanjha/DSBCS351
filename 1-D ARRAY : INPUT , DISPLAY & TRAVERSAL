@@ -1,0 +1,29 @@
+#include <stdio.h>
+
+int main()
+{
+    int a[100];
+    int n, i;
+
+    // Input
+    printf("Enter the number of elements: ");
+    scanf("%d", &n);
+    printf("Enter %d elements:\n", n);
+    for(i = 0; i < n; i++)
+    {
+        scanf("%d", &a[i]);
+    }
+    // Display
+    printf("\nArray elements are:\n");
+    for(i = 0; i < n; i++)
+    {
+        printf("%d ", a[i]);
+    }
+    // Traversal
+    printf("\n\nTraversal of array:\n");
+    for(i = 0; i < n; i++)
+    {
+        printf("a[%d] = %d\n", i, a[i]);
+    }
+    return 0;
+}
