@@ -1,0 +1,74 @@
+#include <stdio.h>
+
+int main()
+{
+    int a[100], n, i, choice, value, position;
+    // Input array
+    printf("Enter the number of elements: ");
+    scanf("%d", &n);
+    printf("Enter %d elements:\n", n);
+    for(i = 0; i < n; i++)
+    {
+        scanf("%d", &a[i]);
+    }
+    printf("\nOriginal Array:\n");
+    for(i = 0; i < n; i++)
+    {
+        printf("%d ", a[i]);
+    }
+    // Menu
+    printf("\n\n===== INSERTION MENU =====\n");
+    printf("1. Insert at Beginning\n");
+    printf("2. Insert at End\n");
+    printf("3. Insert at Given Position\n");
+    printf("Enter your choice: ");
+    scanf("%d", &choice);
+
+    printf("Enter the value to insert: ");
+    scanf("%d", &value);
+    switch(choice)
+    {
+        // Insert at Beginning
+        case 1:
+            for(i = n; i > 0; i--)
+            {
+                a[i] = a[i - 1];
+            }
+            a[0] = value;
+            n++;
+            break;
+        // Insert at End
+        case 2:
+            a[n] = value;
+            n++;
+            break;
+        // Insert at Given Position
+        case 3:
+            printf("Enter position: ");
+            scanf("%d", &position);
+            if(position < 1 || position > n + 1)
+            {
+                printf("Invalid position!\n");
+                return 0;
+            }
+            // Shift elements to the right
+            for(i = n; i >= position; i--)
+            {
+                a[i] = a[i - 1];
+            }
+            a[position - 1] = value;
+            n++;
+            break;
+        default:
+            printf("Invalid choice!\n");
+            return 0;
+    }
+    // Display updated array
+    printf("\nArray after insertion:\n");
+
+    for(i = 0; i < n; i++)
+    {
+        printf("%d ", a[i]);
+    }
+    return 0;
+}
