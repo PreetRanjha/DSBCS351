@@ -1,0 +1,48 @@
+#include <stdio.h>
+
+int main()
+{
+    int a[50], n, i, choice, pos;
+    printf("Enter number of elements: ");
+    scanf("%d", &n);
+
+    printf("Enter elements:\n");
+    for(i = 0; i < n; i++)
+        scanf("%d", &a[i]);
+    printf("\n1. Delete from Beginning");
+    printf("\n2. Delete from End");
+    printf("\n3. Delete from Given Position");
+    printf("\nEnter choice: ");
+    scanf("%d", &choice);
+    if(choice == 1)
+    {
+        // Delete from beginning
+        for(i = 0; i < n - 1; i++)
+            a[i] = a[i + 1];
+        n--;
+    }
+    else if(choice == 2)
+    {
+        // Delete from end
+        n--;
+    }
+    else if(choice == 3)
+    {
+        // Delete from given position
+        printf("Enter position: ");
+        scanf("%d", &pos);
+
+        for(i = pos - 1; i < n - 1; i++)
+            a[i] = a[i + 1];
+        n--;
+    }
+    else
+    {
+        printf("Wrong choice!");
+        return 0;
+    }
+    printf("\nArray after deletion:\n");
+    for(i = 0; i < n; i++)
+        printf("%d ", a[i]);
+    return 0;
+}
